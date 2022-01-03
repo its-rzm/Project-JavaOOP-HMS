@@ -15,5 +15,10 @@ public class StaffAdmin extends User {
 	public void setRoleAcc(String roleAcc) {
 		this.roleAcc = roleAcc;
 	}
+
+	@Override
+	public boolean access() {
+		return true;
+	}
 	
 }

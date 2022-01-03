@@ -7,6 +7,7 @@ import java.util.Vector;
 import com.room.ExecutiveRoom;
 import com.room.Room;
 import com.room.SuiteRoom;
+
 import com.user.Manager;
 import com.user.StaffAdmin;
 import com.user.User;
@@ -45,19 +46,17 @@ public class Main {
 			System.out.println();
 			switch (choice) {
 			case 1:
-				goAway();
 				addReservation();
 				goAway();
 				break;
 
 			case 2:
-				goAway();
 				serviceRoom();
 				goAway();
 				break;
 
 			case 3:
-				System.out.println("\nLog Out..");
+				System.out.println("Log Out..");
 				sc.nextLine();
 				loginSystem();
 				break;
@@ -159,14 +158,15 @@ public class Main {
 						System.out.println("\nUsername "+cari+" ditemukan\n");
 						System.out.println("| USERNAME\t\t | PASSWORD\t |");
 						System.out.printf("| %-22s | %-13s |", vUser.get(a), vPass.get(a));
+						sc.nextLine();
 						break;
 					}
 				}
 				if (!vUser.contains(cari)) {
 					System.out.println("Tidak menemukan username yang dicari");
+					sc.nextLine();
 				}
 				goAway();
-				sc.nextLine();
 				break;
 
 			case 3:
@@ -254,14 +254,14 @@ public class Main {
 		Calendar tempCalCheckOut = Calendar.getInstance();
 		String chosenRoomType = null, name, phonum = null;
 		int chosenRoomNo, tahunCheck, bulanCheck, tanggalCheck;
-		sc.nextLine();
+
 		do {
-			System.out.print("Input customer name : ");
+			System.out.print("Customer name: ");
 			name = sc.nextLine();
 		} while (name.isEmpty());
 
 		do {
-			System.out.print("Input customer phone number : ");
+			System.out.print("Customer phone number : ");
 			phonum = sc.nextLine();
 		} while (checkForNumber(phonum) == false);	
 		Guest tempGuest = new Guest(name,phonum);
@@ -520,8 +520,8 @@ public class Main {
 
 	public void loginSystem() {
 		goAway();
-		System.out.println("             -HMS Login System-              ");
-		System.out.println("+===========================================+");
+		System.out.println("          -HMS Login System-          ");
+		System.out.println("+====================================+");
 		int userLoginLimit = 5;
 		int passLoginLimit = 5;
 		String user, pass;

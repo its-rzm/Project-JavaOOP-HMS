@@ -1,6 +1,6 @@
 package com.user;
 
-public class Manager extends User {
+public class Manager extends User implements Manageable{
 	private String mRole = "Manager";
 
 	public Manager(String username, String password, String mrole) {
@@ -14,6 +14,16 @@ public class Manager extends User {
 
 	public void setmRole(String mRole) {
 		this.mRole = mRole;
+	}
+
+	@Override
+	public boolean access() {
+		return false;
+	}
+
+	@Override
+	public boolean manageUser() {
+		return true;
 	}
 	
 }
